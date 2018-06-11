@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyGateWayTest/MyGateWayTest.iml" filepath="$PROJECT_DIR$/MyGateWayTest/MyGateWayTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyNettyTest.iml" filepath="$PROJECT_DIR$/MyNettyTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clientserverTest/clientserverTest.iml" filepath="$PROJECT_DIR$/clientserverTest/clientserverTest.iml" />
     </modules>
   </component>
 </project>

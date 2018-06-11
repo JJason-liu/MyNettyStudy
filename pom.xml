@@ -6,7 +6,12 @@
 
     <groupId>MyNettyTest</groupId>
     <artifactId>MyNettyTest</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>MyGateWayTest</module>
+        <module>clientserverTest</module>
+    </modules>
 
     <dependencies>
         <dependency>
