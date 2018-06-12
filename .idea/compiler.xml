@@ -12,6 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clientserverTest" target="1.5" />
+      <module name="HellowNetty" target="1.5" />
       <module name="MyGateWayTest" target="1.5" />
       <module name="MyNettyTest" target="1.5" />
     </bytecodeTargetLevel>
