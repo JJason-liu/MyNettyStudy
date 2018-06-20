@@ -24,3 +24,56 @@
     6.消息序列化
     7.消息加密
     8.心跳连接
+
+TCP\IP、Http、Socket的区别
+    1.TCP/IP协议对应在传输层，http在应用层
+
+ 为什么用netty
+    netty是一个高性能、异步时间驱动的nio框架，它提供了对tcp和文件传输的支持，作为一个异步nio框架，
+    netty的所有Io操作都是异步非阻塞的，通过Future-Listener机制。用户可以方便的主动获取或者通过通知机制
+     获得IO操作结果，作为当前最流行的NIO框架，
+
+使用Netty能够做什么
+    开发异步、非阻塞的TCP网络应用程序；
+    开发异步、非阻塞的UDP网络应用程序；
+    开发异步文件传输应用程序；
+    开发异步HTTP服务端和客户端应用程序；
+    提供对多种编解码框架的集成，包括谷歌的Protobuf、Jboss marshalling、Java序列化、压缩编解码、
+    XML解码、字符串编解码等，这些编解码框架可以被用户直接使用；
+    提供形式多样的编解码基础类库，可以非常方便的实现私有协议栈编解码框架的二次定制和开发；
+    基于职责链模式的Pipeline-Handler机制，用户可以非常方便的对网络事件进行拦截和定制；
+    所有的IO操作都是异步的，用户可以通过Future-Listener机制主动Get结果或者由IO线程操作完成之后
+    主动Notify结果，用户的业务线程不需要同步等待；
+    IP黑白名单控制；
+    打印消息码流；
+    流量控制和整形；
+    性能统计；
+    基于链路空闲事件检测的心跳检测
+
+ Netty常用类讲解
+EventLoop,EventLoopGroup：
+    EventLoop目的是为Channel处理IO操作，一个EventLoop可以为多个Channel服务,
+    EventLoopGroup会包含多个EventLoop。
+
+BootStrap,ServerBootstrap：
+    一个Netty应用通常由一个Bootstrap开始，它主要作用是配置整个Netty程序，串联起各个组件。
+
+ChannelInitializer：
+    当一个链接建立时，我们需要知道怎么来接收或者发送数据，当然，我们有各种各样的Handler
+    实现来处理它，那么ChannelInitializer便是用来配置这些Handler，它会提供一个ChannelPipeline，
+    并把Handler加入到ChannelPipeline。
+
+Handler：
+    为了支持各种协议和处理数据的方式，便诞生了Handler组件。Handler主要用来处理各种事件，这里的
+    事件很广泛，比如可以是连接、数据接收、异常、数据转换等。
+
+ChannelInboundHandler：
+    一个最常用的Handler。这个Handler的作用就是处理接收到数据时的事件，也就是说，我们的业务逻辑
+    一般就是写在这个Handler里面的，ChannelInboundHandler就是用来处理我们的核心业务逻辑。
+
+Future：
+    在Netty中所有的IO操作都是异步的，因此，你不能立刻得知消息是否被正确处理，但是我们可以过一会
+    等它执行完成或者直接注册一个监听，具体的实现就是通过Future和ChannelFutures,他们可以注册一个
+    监听，当操作执行成功或失败时监听会自动触发。总之，所有的操作都会返回一个ChannelFuture。
+
+
