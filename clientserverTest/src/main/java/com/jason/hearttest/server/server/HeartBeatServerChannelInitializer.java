@@ -1,4 +1,4 @@
-package com.jason.hearttest.server;
+package com.jason.hearttest.server.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -12,15 +12,16 @@ import java.util.concurrent.TimeUnit;
 /**
  * Author:有泪的北极星
  * Date:2018/7/2
- * Time:16:24
+ * Time:16:14
  */
-public class HeartBeatsClientChannelInitializer extends ChannelInitializer<SocketChannel> {
-    protected void initChannel(SocketChannel socketChannel) throws Exception {
-        ChannelPipeline pipeline = socketChannel.pipeline();
+public class HeartBeatServerChannelInitializer extends ChannelInitializer<SocketChannel> {
+    protected void initChannel(SocketChannel ch) throws Exception {
+        ChannelPipeline pipeline = ch.pipeline();
 
-        pipeline.addLast("handler", new IdleStateHandler(0, 3, 0, TimeUnit.SECONDS));
+        pipeline.addLast("handler",new IdleStateHandler(3,0,0, TimeUnit.SECONDS
+        ));
         pipeline.addLast("decoder", new StringDecoder());
         pipeline.addLast("encoder", new StringEncoder());
-        pipeline.addLast(new HeartBeatClientHandler());
+        pipeline.addLast(new HeartBeatServerHandler());
     }
 }

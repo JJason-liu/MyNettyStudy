@@ -1,4 +1,4 @@
-package com.jason.hearttest.server;
+package com.jason.hearttest.server.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

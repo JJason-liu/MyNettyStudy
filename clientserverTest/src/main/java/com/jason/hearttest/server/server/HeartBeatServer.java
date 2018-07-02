@@ -1,4 +1,4 @@
-package com.jason.hearttest.server;
+package com.jason.hearttest.server.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
